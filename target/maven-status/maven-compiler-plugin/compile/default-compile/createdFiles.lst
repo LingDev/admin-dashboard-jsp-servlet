@@ -1,0 +1,17 @@
+dao\implement\StudentDaoImplement.class
+servlet\StudentServlet.class
+data\BasicH2ConnectionPool.class
+data\ConnectionPool.class
+servlet\MasterServlet.class
+dao\UserDao.class
+servlet\LoginServlet.class
+dao\implement\UserDaoImplement.class
+model\StudentBean.class
+model\UserDetails.class
+dao\AuthenticationDao.class
+model\UserBean.class
+model\AuthenticatedUser.class
+data\ConnectionPooll.class
+servlet\RegisterServlet.class
+dao\StudentDao.class
+model\LoginForm.class

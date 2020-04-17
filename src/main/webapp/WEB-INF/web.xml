@@ -19,6 +19,10 @@
         <servlet-name>StudentServlet</servlet-name>
         <servlet-class>servlet.StudentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MasterServlet</servlet-name>
+        <servlet-class>servlet.MasterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CorFillter</servlet-name>
         <url-pattern>/CorFillter</url-pattern>
@@ -33,7 +37,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StudentServlet</servlet-name>
-        <url-pattern>/Students.jsp</url-pattern>
+        <url-pattern>/StudentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MasterServlet</servlet-name>
+        <url-pattern>/MasterServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

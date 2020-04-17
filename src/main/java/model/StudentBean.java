@@ -1,4 +1,4 @@
-package com.linhdoan.mavenproject3;
+package model;
 
 import java.sql.Date;
 
@@ -10,10 +10,7 @@ public class StudentBean {
     private int sex;
     private String classId;
 
-    StudentBean() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
     public int getId() {
         return id;
     }
@@ -68,5 +65,9 @@ public class StudentBean {
         this.sex = sex;
         this.classId = classId;
     }
-    
+
+    public StudentBean() {
+        
+    }
+       
 }

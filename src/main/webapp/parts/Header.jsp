@@ -1,8 +1,6 @@
 <script>
-    $(document).ready(function () {
-        $("#Student-nav-item").click(function () {
-            $("#container").load("../Students.jsp");
-        });
+    $(document).on("click", "#Student-nav-item", function () { // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
+        $("#container").load("../Students");
     });
 </script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -24,7 +22,7 @@
                     <a class="nav-link"  href="#">Member</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="Student-nav-item" href="#">Students</a>
+                    <a class="nav-link" id="Student-nav-item" href="../StudentServlet?action=get">Students</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>

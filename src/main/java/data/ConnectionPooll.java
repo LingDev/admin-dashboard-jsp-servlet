@@ -32,5 +32,6 @@ public class ConnectionPooll {
     }
      public static void closeConnection () throws SQLException{
          con.close();
+          
      }
 }

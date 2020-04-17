@@ -5,11 +5,12 @@
  */
 package servlet;
 
-import com.linhdoan.mavenproject3.StudentBean;
-import com.linhdoan.mavenproject3.StudentDaoImplement;
+import model.StudentBean;
+import dao.implement.StudentDaoImplement;
 import dao.StudentDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
@@ -26,16 +27,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class StudentServlet extends HttpServlet {
 
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            if (StudentDaoImplement.getAllRecords().isEmpty()) {
-                response.sendRedirect("/Home.jsp");
-            }
-            request.setAttribute("students", StudentDaoImplement.getAllRecords());
-            RequestDispatcher view = request.getRequestDispatcher("/Students.jsp");
-            view.forward(request, response);
             /* out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -63,21 +59,9 @@ public class StudentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(StudentServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(StudentServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        request.setAttribute("students", StudentDaoImplement.getAllRecords());
+        RequestDispatcher view = request.getRequestDispatcher("Students.jsp");
+        view.forward(request, response);
     }
 
     @Override

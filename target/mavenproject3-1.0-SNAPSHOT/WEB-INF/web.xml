@@ -23,6 +23,22 @@
         <servlet-name>MasterServlet</servlet-name>
         <servlet-class>servlet.MasterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>servlet.UserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DashBoardServlet</servlet-name>
+        <servlet-class>servlet.DashBoardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>servlet.DashboardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TableServletWillBeDelete</servlet-name>
+        <servlet-class>servlet.TableServletWillBeDelete</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CorFillter</servlet-name>
         <url-pattern>/CorFillter</url-pattern>
@@ -42,6 +58,22 @@
     <servlet-mapping>
         <servlet-name>MasterServlet</servlet-name>
         <url-pattern>/MasterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/UserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashBoardServlet</servlet-name>
+        <url-pattern>/DashBoardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/DashboardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TableServletWillBeDelete</servlet-name>
+        <url-pattern>/TableServletWillBeDelete</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

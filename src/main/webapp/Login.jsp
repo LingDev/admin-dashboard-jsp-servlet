@@ -11,7 +11,7 @@
 <title>Creative Account Form Responsive Widget Template | Home :: w3layouts</title>
 <script src="js/jquery-1.11.0.min.js"></script>
 <!-- Custom Theme files -->
-<link href="asset/css/login.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="assets/css/login.css" rel="stylesheet" type="text/css" media="all"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 

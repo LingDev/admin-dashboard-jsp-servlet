@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ 
 package model;
 
 /**
@@ -37,6 +33,10 @@ public class UserBean {
     public UserBean(String userName, String pw) {
         this.userName = userName;
         this.pw = pw;
+    }
+
+    public UserBean() {
+         
     }
     
 

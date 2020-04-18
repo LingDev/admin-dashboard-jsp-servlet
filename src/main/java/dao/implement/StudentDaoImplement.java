@@ -5,7 +5,7 @@ import java.util.*;
 import java.sql.*;
 import model.StudentBean;
 import dao.StudentDao;
-import data.ConnectionPooll;
+import data.ConnectionPoolImplement;
 import java.util.Date;
 
 /**
@@ -15,7 +15,7 @@ import java.util.Date;
 public class StudentDaoImplement {
 
     public static boolean insertStudent(StudentBean studentBean) {
-        try ( Connection currentCon = ConnectionPooll.getConnection()) {
+        try ( Connection currentCon = ConnectionPoolImplement.getConnection()) {
             PreparedStatement ps = currentCon.prepareStatement("INSERT INTO STUDENT(fullName,dateBirth,sex,classId) values(?,?,?,?)");
             ps.setString(1, studentBean.getFullName());
             ps.setDate(2, studentBean.getDateBirth());
@@ -31,7 +31,7 @@ public class StudentDaoImplement {
     }
 
     public static boolean updateStudent(StudentBean studentBean) {
-        try ( Connection currentCon = ConnectionPooll.getConnection()) {
+        try ( Connection currentCon = ConnectionPoolImplement.getConnection()) {
             PreparedStatement ps = currentCon.prepareStatement("UPDATE STUDENT SET fullName = ? , dateBirth = ? , sex = ? WHERE id = ?");
             ps.setString(1, studentBean.getFullName());
             ps.setDate(2, studentBean.getDateBirth());
@@ -46,7 +46,7 @@ public class StudentDaoImplement {
     }
 
     public static boolean deleteStudent(StudentBean studentBean) {
-        try ( Connection currentCon = ConnectionPooll.getConnection()) {
+        try ( Connection currentCon = ConnectionPoolImplement.getConnection()) {
             PreparedStatement ps = currentCon.prepareStatement("DELETE STUDENT WHERE id = ? ");
             ps.setInt(1, studentBean.getId());
             ps.executeUpdate();
@@ -59,8 +59,8 @@ public class StudentDaoImplement {
     }
 
     public static List<StudentBean> getAllRecords() {
-        List<StudentBean> list = new ArrayList<StudentBean>();
-        try ( Connection currentCon = ConnectionPooll.getConnection()) {
+        List<StudentBean> list = new ArrayList<>();
+        try ( Connection currentCon = ConnectionPoolImplement.getConnection()) {
 
             PreparedStatement ps = currentCon.prepareStatement("SELECT * FROM STUDENT");
             ResultSet rs = ps.executeQuery();

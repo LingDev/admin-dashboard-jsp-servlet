@@ -1,69 +1,44 @@
-<%-- 
-    Document   : Footer
-    Created on : Apr 14, 2020, 12:01:54 AM
-    Author     : vando
---%>
-<%!
-    int count = 0;
 
-    void doCount() {
-        count++;
-    }
-%>
-<% doCount();%>
-
-
-<section id="footer">
-    <div class="container">
-        <div class="row text-center text-xs-center text-sm-left text-md-left">
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h5>Quick links</h5>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-                </ul>
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-header">Active Student
+                <div class="btn-actions-pane-right">
+                    <div role="group" class="btn-group-sm btn-group">
+                        <button class="active btn btn-focus">Last Week</button>
+                        <button class="btn btn-focus">All Month</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h5>Quick links</h5>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-                </ul>
+            <div class="table-responsive">
+                <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <c:forEach var="headerItem" items="${headerTable}" >
+                                <th class="text-center">${headerItem}</th>
+                                </c:forEach>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="listItem" items="${list}"  >
+
+                            <tr>
+                                <c:forEach var="field" items="${bodyTable}" >
+                                    <td class="text-center">${listItem[field]}</td>
+                                    </c:forEach>
+                        
+                        </td>
+                        </tr>
+
+                    </c:forEach>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h5>Quick links</h5>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                    <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
-                </ul>
+            <div class="d-block text-center card-footer">
+                <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i
+                        class="pe-7s-trash btn-icon-wrapper"> </i></button>
+                <button class="btn-wide btn btn-success">Save</button>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                <ul class="list-unstyled list-inline social text-center">
-                    <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-                    <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                    <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
-                </ul>
-            </div>
-            </hr>
-        </div>	
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center ">
-                <p >&copy All right Reversed. Page was visited <%= count%></p> 
-            </div>
-            </hr>
-        </div>	
     </div>
-</section>
+</div>

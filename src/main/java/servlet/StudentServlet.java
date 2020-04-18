@@ -13,8 +13,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,39 +26,26 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class StudentServlet extends HttpServlet {
 
-   
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet StudentInsertServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet StudentInsertServlet atadasdasdas " + request.getContextPath() + "</h1>");
-            String fullName = request.getParameter("txtFullName");
-            int sex = Integer.parseInt(request.getParameter("txtSex"));
-            //parse date from form to mysql-format action
-            java.util.Date db = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("txtDateBirth"));
-            java.sql.Date dateBirth = new java.sql.Date(db.getTime());
-            String classId = request.getParameter("txtClassId");
-            StudentBean studentBean = new StudentBean(fullName, dateBirth, sex, classId);
-            if (StudentDaoImplement.insertStudent(studentBean) == true) {
-                out.print("<h1>Servlet StudentInsertServlet atadasdasdas </h1>");
-            } else {
-                out.print("<h1>loi con e no rois </h1> ");
-            }
-            out.println("</body>");
-            out.println("</html>"); */
-        }
-    }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("students", StudentDaoImplement.getAllRecords());
+        List<String> headerTable = new ArrayList<>();
+        headerTable.add("#");
+        headerTable.add("Full Name");
+        headerTable.add("Date Birth");
+        headerTable.add("Sex");
+        headerTable.add("Class ID");
+        headerTable.add("Action");
+        
+        List<String> bodyTable = new ArrayList<>();
+        bodyTable.add("id");
+        bodyTable.add("fullName");
+        bodyTable.add("dateBirth");
+        bodyTable.add("sex");
+        bodyTable.add("classId");
+        request.setAttribute("headerTable", headerTable);
+                request.setAttribute("bodyTable", bodyTable);
+        request.setAttribute("list", StudentDaoImplement.getAllRecords());
         RequestDispatcher view = request.getRequestDispatcher("Students.jsp");
         view.forward(request, response);
     }

@@ -24,11 +24,12 @@ public class MasterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String redirect = request.getParameter("redirect");
-        if (redirect.equals("DashBoardOverview")) {
-            RequestDispatcher view = request.getRequestDispatcher("Students.jsp");
-            view.forward(request, response);
+        if (redirect.equals("DashboardOverview")) {
+             response.sendRedirect("/DashboardServlet");
         } else if (redirect.equals("Students")) {
             response.sendRedirect("/StudentServlet");
+        } else if(redirect.equals("Users")){
+            response.sendRedirect("/UserServlet");
         }
     }
 

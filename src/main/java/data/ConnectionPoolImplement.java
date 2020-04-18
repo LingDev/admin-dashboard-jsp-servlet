@@ -14,7 +14,7 @@ import model.UserBean;
  *
  * @author vando
  */
-public class ConnectionPooll {
+public class ConnectionPoolImplement{
     static Connection con = null;
      public static Connection getConnection() throws ClassNotFoundException, SQLException {
         String dbDriver = "com.mysql.jdbc.Driver";
@@ -30,6 +30,7 @@ public class ConnectionPooll {
                 dbPassword);
         return con;
     }
+
      public static void closeConnection () throws SQLException{
          con.close();
           

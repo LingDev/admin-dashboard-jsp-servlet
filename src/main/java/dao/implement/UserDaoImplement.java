@@ -6,8 +6,10 @@
 package dao.implement;
 
 import dao.UserDao;
-import data.ConnectionPooll;
+import data.ConnectionPoolImplement;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import model.UserBean;
 
 /**
@@ -22,7 +24,7 @@ public class UserDaoImplement implements UserDao {
     public static boolean login(UserBean userBean) throws ClassNotFoundException {
         boolean canLogin = false;
         try {
-            currentCon = ConnectionPooll.getConnection();
+            currentCon = ConnectionPoolImplement.getConnection();
             PreparedStatement ps = currentCon.prepareStatement("SELECT * FROM USERS WHERE userName = ? AND pw = ?");
             ps.setString(1, userBean.getUserName());
             ps.setString(2, userBean.getPw());
@@ -42,7 +44,7 @@ public class UserDaoImplement implements UserDao {
         boolean registStatus = false;
         PreparedStatement ps;
         try {
-            currentCon = ConnectionPooll.getConnection();
+            currentCon = ConnectionPoolImplement.getConnection();
             ps = currentCon.prepareStatement("SELECT * FROM USERS WHERE userName = ?");
             ps.setString(1, userBean.getUserName());
             rs = ps.executeQuery();
@@ -68,7 +70,7 @@ public class UserDaoImplement implements UserDao {
     public static UserBean getDetails(UserBean uBean) throws ClassNotFoundException {
         UserBean userBean = new UserBean(uBean.getUserName(), uBean.getPw());
         try {
-            currentCon = ConnectionPooll.getConnection();
+            currentCon = ConnectionPoolImplement.getConnection();
             PreparedStatement ps = currentCon.prepareStatement("SELECT * FROM USERS WHERE userName = ?");
             ps.setString(1, userBean.getUserName());
             rs = ps.executeQuery();
@@ -84,5 +86,29 @@ public class UserDaoImplement implements UserDao {
         }
         return userBean;
     }
+    public static List<UserBean> getAllRecords() {
+        List<UserBean> list = new ArrayList<>();
+        try ( Connection currentCon = ConnectionPoolImplement.getConnection()) {
+
+            PreparedStatement ps = currentCon.prepareStatement("SELECT * FROM STUDENT");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                UserBean u = new UserBean();
+                u.setUserId(rs.getString("userId")); 
+                u.setUserName(rs.getString("userName"));
+                u.setFirstName(rs.getString("firstName"));
+                u.setLastName(rs.getString("lastName"));
+                u.setPhone(rs.getString("phone"));
+                list.add(u);
+                
+            }
+            ps.close();
+            currentCon.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
 
 }

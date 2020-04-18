@@ -380,7 +380,7 @@
                                                 <c:forEach var="field" items="${bodyTable}" >
                                                     <td class="text-center">${listItem[field]}</td>
                                                 </c:forEach>
-                                                <td><i class="fas fa-edit"></i></td>
+                                                <td><i class="fas fa-edit"></i><i class="fas fa-trash"></i></td>
                                                 </tr>
                                             </c:forEach>
                                             </tbody>

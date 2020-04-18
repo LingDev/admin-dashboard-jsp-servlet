@@ -1,4 +1,6 @@
 dao\implement\StudentDaoImplement.class
+service\TokenServiceImplement.class
+dao\implement\LoginDaoImplement.class
 servlet\StudentServlet.class
 servlet\MasterServlet.class
 dao\UserDao.class
@@ -9,10 +11,11 @@ model\StudentBean.class
 model\UserDetails.class
 dao\AuthenticationDao.class
 servlet\UserServlet.class
+model\AuthenticatedUserBean.class
 servlet\DashboardServlet.class
 model\UserBean.class
-model\AuthenticatedUser.class
 servlet\RegisterServlet.class
 dao\StudentDao.class
 model\LoginForm.class
-servlet\TableServletWillBeDelete.class
+service\LoginServiceImplement.class
+dao\implement\AuthenticationDaoImplement.class

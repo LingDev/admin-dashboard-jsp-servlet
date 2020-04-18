@@ -21,24 +21,24 @@ public class UserDaoImplement implements UserDao {
     static Connection currentCon = null;
     static ResultSet rs = null;
 
-    public static boolean login(UserBean userBean) throws ClassNotFoundException {
-        boolean canLogin = false;
-        try {
-            currentCon = ConnectionPoolImplement.getConnection();
-            PreparedStatement ps = currentCon.prepareStatement("SELECT * FROM USERS WHERE userName = ? AND pw = ?");
-            ps.setString(1, userBean.getUserName());
-            ps.setString(2, userBean.getPw());
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                canLogin = true;
-            }
-            ps.close();
-            currentCon.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return canLogin;
-    }
+//    public static boolean login(UserBean userBean) throws ClassNotFoundException {
+//        boolean canLogin = false;
+//        try {
+//            currentCon = ConnectionPoolImplement.getConnection();
+//            try (PreparedStatement ps = currentCon.prepareStatement("SELECT * FROM USERS WHERE userName = ? AND pw = ?")) {
+//                ps.setString(1, userBean.getUserName());
+//                ps.setString(2, userBean.getPw());
+//                rs = ps.executeQuery();
+//                if (rs.next()) {
+//                    canLogin = true;
+//                }
+//            }
+//            currentCon.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return canLogin;
+//    }
 
     public static boolean register(UserBean userBean) throws ClassNotFoundException, SQLException {
         boolean registStatus = false;
@@ -90,7 +90,7 @@ public class UserDaoImplement implements UserDao {
         List<UserBean> list = new ArrayList<>();
         try ( Connection currentCon = ConnectionPoolImplement.getConnection()) {
 
-            PreparedStatement ps = currentCon.prepareStatement("SELECT * FROM STUDENT");
+            PreparedStatement ps = currentCon.prepareStatement("SELECT * FROM USERS");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 UserBean u = new UserBean();

@@ -4,14 +4,6 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>CorFillter</servlet-name>
-        <servlet-class>com.linhdoan.mavenproject3.CorFillter</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>servlet.LoginServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>servlet.RegisterServlet</servlet-class>
     </servlet>
@@ -32,21 +24,9 @@
         <servlet-class>servlet.DashBoardServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DashboardServlet</servlet-name>
-        <servlet-class>servlet.DashboardServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>TableServletWillBeDelete</servlet-name>
-        <servlet-class>servlet.TableServletWillBeDelete</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>CorFillter</servlet-name>
-        <url-pattern>/CorFillter</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/LoginServlet</url-pattern>
-    </servlet-mapping>
+        <servlet-class>servlet.LoginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
@@ -68,12 +48,8 @@
         <url-pattern>/DashBoardServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DashboardServlet</servlet-name>
-        <url-pattern>/DashboardServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TableServletWillBeDelete</servlet-name>
-        <url-pattern>/TableServletWillBeDelete</url-pattern>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
